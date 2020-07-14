@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+
+    <title>{% block title %}demo{% endblock %}</title>
+
+    <!-- CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/bootstrap-theme.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/elegant-icons-style.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/font-awesome.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/fullcalendar.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/jquery-jvectormap-1.2.2.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/jquery-ui-1.10.4.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/line-icons.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/owl.carousel.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style-responsive.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/widgets.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/xcharts.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/fullcalendar/fullcalendar/fullcalendar.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css') }}" rel="stylesheet">
+    {% block css %}
+    {% endblock %}
+    <!-- JS -->
+
+    <script src="{{ url_for('static', filename='js/jquery.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/jquery-ui-1.10.4.min.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/jquery-1.8.3.min.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/jquery-ui-1.9.2.custom.min.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/jquery.scrollTo.min.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/jquery.nicescroll.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/jquery.sparkline.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/owl.carousel.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/fullcalendar.min.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/calendar-custom.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/jquery.rateit.min.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/jquery.customSelect.min.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/scripts.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/sparkline-chart.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/easy-pie-chart.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/jquery-jvectormap-1.2.2.min.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/jquery-jvectormap-world-mill-en.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/xcharts.min.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/jquery.autosize.min.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/jquery.placeholder.min.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/gdp-data.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/morris.min.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/sparklines.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/charts.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/jquery.slimscroll.min.js')}}" type="text/javascript"></script>
+
+    {% block js %}
+    {% endblock %}
+
+</head>
+<body>
+
+<section id="container">
+    {% include "common/header.html" %}<!--引入网页的头部模板-->
+    {% include "common/sidebar.html" %}<!--引入网页的侧边模板-->
+    {% block content %}<!--自定义模板区域-->
+    {% endblock %}
+</section><!--/row-->
+{% include "common/footer.html" %}<!--引入网页的底部模板-->
+</body>
+
+</html>

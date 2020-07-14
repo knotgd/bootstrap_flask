@@ -1,0 +1,87 @@
+{% extends "common/base.html" %}<!--继承基础模板-->
+{% block content %}<!--自定义模板区域-->
+<section id="main-content">
+
+    <section class=" wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+                    <li><i class="fa fa-desktop"></i>测试数据请求</li>
+                </ol>
+            </div>
+            <div class="col-lg-3">
+                <section class="panel panel-primary">
+                    <header class="panel-heading">
+                        请求测试
+                    </header>
+                    <section class="panel">
+                        <form role="form" id="test_form" method="post">
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label>生产数据个数</label>
+
+                                    <input class="form-control" type="text" name="num">
+                                </div>
+
+                                <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
+                            </div>
+                            <button class="btn btn-primary btn-lg btn-block" type="button" onclick="test()">ajax
+                            </button>
+
+                        </form>
+                    </section>
+                </section>
+            </div>
+            <div class="col-lg-9">
+                <section class="panel panel-primary">
+                    <header class="panel-heading">
+                        展示后台初始化数据
+                    </header>
+                    <section class="panel" id="show">
+                    </section>
+                </section>
+                <section class="panel panel-primary">
+                    <header class="panel-heading">
+                        展示刷新整体页面数据
+                    </header>
+                    <section class="panel" id="show1">
+                    </section>
+                </section>
+            </div>
+        </div>
+    </section>
+</section>
+<script>
+    var init_data = {{data | tojson}}
+    init_show(init_data)
+    function init_show(data) {
+        for (let i = 0; i < data.length; i++) {
+            $("#show").append("<div class='alert alert-block alert-danger fade in'> <button class='close close-sm'" +
+                " type='button' data-dismiss='alert'> <i class='icon-remove'></i> </button>" + data[i] + " </div>")
+        }
+    }
+
+
+    function test() {
+        var form = new FormData(document.getElementById("test_form"));
+        $.ajax({
+            url: "/pages/test/ajax",
+            type: "POST",
+            data: form,
+            dataType: 'json',
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                console.log(data)
+                init_show(data)
+            }
+            ,
+            error: function (e) {
+
+            }
+        })
+
+    }
+</script>
+{% endblock %}
